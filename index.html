@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manchester United - Official Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-red: #DA020E;
+            --secondary-red: #C8102E;
+            --dark-red: #9A0007;
+            --white: #FFFFFF;
+            --black: #000000;
+            --gray: #333333;
+            --light-gray: #F5F5F5;
+            --gold: #D4AF37;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            border-bottom: 2px solid var(--primary-red);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--white);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--primary-red), transparent);
+            transition: 0.5s;
+        }
+
+        .logo:hover::before {
+            left: 100%;
+        }
+
+        .logo span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu li a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-red);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu li a:hover {
+            color: var(--primary-red);
+            transform: translateY(-2px);
+        }
+
+        .nav-menu li a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(218,2,14,0.1) 0%, rgba(0,0,0,0.8) 100%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--white), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 2s infinite alternate;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--light-gray);
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            background: var(--primary-red);
+            color: var(--white);
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(218, 2, 14, 0.4);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 5rem 2rem;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(218, 2, 14, 0.3);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(218,2,14,0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .stat-card:hover::before {
+            opacity: 1;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border-color: var(--primary-red);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary-red);
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(218, 2, 14, 0.5);
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            color: var(--light-gray);
+            font-weight: 600;
+        }
+
+        /* History Timeline */
+        .timeline-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: var(--white);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--primary-red);
+            border-radius: 2px;
+        }
+
+        .timeline {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--primary-red);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            width: 100%;
+            padding: 0 2rem;
+        }
+
+        .timeline-item:nth-child(odd) {
+            padding-left: 4rem;
+            text-align: left;
+        }
+
+        .timeline-item:nth-child(even) {
+            padding-right: 4rem;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(odd)::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-red);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 15px rgba(218, 2, 14, 0.7);
+        }
+
+        .timeline-item:nth-child(even)::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-red);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 15px rgba(218, 2, 14, 0.7);
+        }
+
+        .timeline-content {
+            background: rgba(26, 26, 26, 0.8);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 3px solid var(--primary-red);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .timeline-content:hover {
+            background: rgba(218, 2, 14, 0.2);
+            transform: translateX(10px);
+            border-left-color: var(--gold);
+        }
+
+        .timeline-year {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-text {
+            color: var(--light-gray);
+            line-height: 1.6;
+        }
+
+        /* Stadium Section */
+        .stadium-section {
+            padding: 5rem 2rem;
+            background: rgba(0, 0, 0, 0.8);
+            position: relative;
+        }
+
+        .stadium-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .stadium-image {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(45deg, #2a2a2a, #1a1a1a);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid var(--primary-red);
+        }
+
+        .stadium-image::before {
+            content: 'OLD TRAFFORD';
+            position: absolute;
+            font-size: 3rem;
+            font-weight: bold;
+            color: rgba(218, 2, 14, 0.2);
+            transform: rotate(-45deg);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+
+        .stadium-info {
+            color: var(--light-gray);
+        }
+
+        .stadium-info h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .stadium-info p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .stadium-facts {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .fact-item {
+            background: rgba(26, 26, 26, 0.6);
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 3px solid var(--primary-red);
+            transition: all 0.3s ease;
+        }
+
+        .fact-item:hover {
+            background: rgba(218, 2, 14, 0.1);
+            transform: translateX(5px);
+        }
+
+        .fact-label {
+            font-weight: bold;
+            color: var(--primary-red);
+        }
+
+        .fact-value {
+            color: var(--white);
+        }
+
+        /* Legends Section */
+        .legends-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+        }
+
+        .legends-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .legend-card {
+            background: rgba(26, 26, 26, 0.8);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            position: relative;
+            border: 1px solid rgba(218, 2, 14, 0.3);
+        }
+
+        .legend-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+            border-color: var(--primary-red);
+        }
+
+        .legend-image {
+            height: 300px;
+            background: linear-gradient(45deg, var(--primary-red), var(--dark-red));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .legend-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .legend-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        .legend-position {
+            color: var(--primary-red);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .legend-achievements {
+            color: var(--light-gray);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.95);
+            padding: 3rem 2rem;
+            border-top: 2px solid var(--primary-red);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-column h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-column h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-red);
+        }
+
+        .footer-column p, .footer-column a {
+            color: var(--light-gray);
+            margin-bottom: 0.8rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--primary-red);
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(218, 2, 14, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary-red);
+            transform: translateY(-5px) rotate(10deg);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            color: var(--light-gray);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 2rem;
+        }
+
+        /* Animations */
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            }
+            to {
+                text-shadow: 0 0 30px rgba(212, 175, 55, 0.8), 0 0 60px rgba(212, 175, 55, 0.6);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .stadium-container {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                padding-left: 70px !important;
+                padding-right: 0 !important;
+                text-align: left !important;
+            }
+
+            .timeline-item::before {
+                left: 30px !important;
+            }
+        }
+
+        /* Additional Hover Effects */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(218, 2, 14, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(218, 2, 14, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(218, 2, 14, 0);
+            }
+        }
+
+        .rotate-hover {
+            transition: transform 0.3s ease;
+        }
+
+        .rotate-hover:hover {
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        /* Loading Animation */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .loading-logo {
+            font-size: 4rem;
+            color: var(--primary-red);
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: var(--primary-red);
+            z-index: 9998;
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-logo">🔴</div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo"><span>MANCHESTER UNITED</span></a>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#stats">Stats</a></li>
+                <li><a href="#history">History</a></li>
+                <li><a href="#stadium">Stadium</a></li>
+                <li><a href="#legends">Legends</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>MANCHESTER UNITED</h1>
+            <p>The most successful football club in English history with 20 league titles, 12 FA Cups, and 3 European Cups. Founded in 1878 as Newton Heath LYR Football Club, we became Manchester United in 1902 and have been dominating English and European football ever since.</p>
+            <button class="cta-button">JOIN THE RED ARMY</button>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section" id="stats">
+        <div class="stats-container">
+            <div class="stat-card pulse">
+                <div class="stat-number">20</div>
+                <div class="stat-label">Premier League Titles</div>
+            </div>
+            <div class="stat-card pulse">
+                <div class="stat-number">12</div>
+                <div class="stat-label">FA Cups</div>
+            </div>
+            <div class="stat-card pulse">
+                <div class="stat-number">3</div>
+                <div class="stat-label">European Cups</div>
+            </div>
+            <div class="stat-card pulse">
+                <div class="stat-number">21</div>
+                <div class="stat-label">FA Community Shields</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Timeline -->
+    <section class="timeline-section" id="history">
+        <h2 class="section-title">CLUB HISTORY</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">1878</div>
+                    <div class="timeline-text">Newton Heath LYR Football Club was formed by the Carriage and Wagon department of the Lancashire and Yorkshire Railway depot.</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">1902</div>
+                    <div class="timeline-text">The club was renamed Manchester United after financial difficulties threatened its existence.</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">1958</div>
+                    <div class="timeline-text">The Munich air disaster claimed the lives of 8 Manchester United players, a tragedy that shook the football world.</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">1968</div>
+                    <div class="timeline-text">Manchester United became the first English club to win the European Cup, defeating Benfica 4-1 at Wembley.</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">1999</div>
+                    <div class="timeline-text">The Treble-winning season under Sir Alex Ferguson: Premier League, FA Cup, and UEFA Champions League.</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">2008</div>
+                    <div class="timeline-text">United won their third European Cup, defeating Chelsea in a dramatic penalty shootout in Moscow.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stadium Section -->
+    <section class="stadium-section" id="stadium">
+        <div class="stadium-container">
+            <div class="stadium-image floating"></div>
+            <div class="stadium-info">
+                <h3>OLD TRAFFORD</h3>
+                <p>Known as the "Theatre of Dreams," Old Trafford has been Manchester United's home since 1910. With a capacity of over 74,000, it's the largest club football stadium in the United Kingdom and the second-largest overall after Wembley.</p>
+                <p>The stadium has witnessed countless historic moments, from Sir Bobby Charlton's record-breaking goals to Cristiano Ronaldo's spectacular performances.</p>
+                <div class="stadium-facts">
+                    <div class="fact-item">
+                        <div class="fact-label">Capacity:</div>
+                        <div class="fact-value">74,310</div>
+                    </div>
+                    <div class="fact-item">
+                        <div class="fact-label">Opened:</div>
+                        <div class="fact-value">1910</div>
+                    </div>
+                    <div class="fact-item">
+                        <div class="fact-label">Record Attendance:</div>
+                        <div class="fact-value">83,260 (1939)</div>
+                    </div>
+                    <div class="fact-item">
+                        <div class="fact-label">Pitch Size:</div>
+                        <div class="fact-value">106m x 69m</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legends Section -->
+    <section class="legends-section" id="legends">
+        <h2 class="section-title">CLUB LEGENDS</h2>
+        <div class="legends-container">
+            <div class="legend-card rotate-hover">
+                <div class="legend-image">SIR BOBBY CHARLTON</div>
+                <div class="legend-info">
+                    <div class="legend-name">Sir Bobby Charlton</div>
+                    <div class="legend-position">Midfielder</div>
+                    <div class="legend-achievements">758 appearances, 249 goals. Ballon d'Or winner 1966. Survived Munich air disaster.</div>
+                </div>
+            </div>
+            <div class="legend-card rotate-hover">
+                <div class="legend-image">SIR ALEX FERGUSON</div>
+                <div class="legend-info">
+                    <div class="legend-name">Sir Alex Ferguson</div>
+                    <div class="legend-position">Manager</div>
+                    <div class="legend-achievements">26 years as manager. 38 trophies including 13 Premier League titles and 2 Champions Leagues.</div>
+                </div>
+            </div>
+            <div class="legend-card rotate-hover">
+                <div class="legend-image">CRISTIANO RONALDO</div>
+                <div class="legend-info">
+                    <div class="legend-name">Cristiano Ronaldo</div>
+                    <div class="legend-position">Forward</div>
+                    <div class="legend-achievements">292 appearances, 118 goals. Ballon d'Or winner 2008. Champions League winner 2008.</div>
+                </div>
+            </div>
+            <div class="legend-card rotate-hover">
+                <div class="legend-image">GEORGE BEST</div>
+                <div class="legend-info">
+                    <div class="legend-name">George Best</div>
+                    <div class="legend-position">Winger</div>
+                    <div class="legend-achievements">470 appearances, 179 goals. Ballon d'Or winner 1968. European Cup winner 1968.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Manchester United</h4>
+                <p>The official website of Manchester United Football Club. Join the largest football family in the world.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <a href="#">Tickets</a>
+                <a href="#">Membership</a>
+                <a href="#">Stadium Tour</a>
+                <a href="#">Museum</a>
+                <a href="#">Shop</a>
+            </div>
+            <div class="footer-column">
+                <h4>Club Info</h4>
+                <a href="#">First Team</a>
+                <a href="#">Academy</a>
+                <a href="#">Women's Team</a>
+                <a href="#">Reserves</a>
+                <a href="#">Staff</a>
+            </div>
+            <div class="footer-column">
+                <h4>Contact Us</h4>
+                <p>Old Trafford, Sir Matt Busby Way, Manchester, M16 0RA</p>
+           
+            </div>
+        </div>  
+        <div class="copyright">
+            <p>&copy; 2025 Manchester United Football Club. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Loading Screen
+        window.addEventListener('load', function() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            setTimeout(() => {
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 500);
+            }, 2000);
+        });
+
+        // Scroll Progress Bar
+        window.addEventListener('scroll', function() {
+            const scrollProgress = document.getElementById('scrollProgress');
+            const scrollTop = document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercentage = (scrollTop / scrollHeight) * 100;
+            scrollProgress.style.width = scrollPercentage + '%';
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Timeline Hover Effects
+        const timelineContents = document.querySelectorAll('.timeline-content');
+        timelineContents.forEach(content => {
+            content.addEventListener('mouseenter', function() {
+                this.style.backgroundColor = 'rgba(218, 2, 14, 0.15)';
+                this.style.transform = 'translateX(' + (this.parentElement.classList.contains('timeline-item:nth-child(odd)') ? '10px' : '-10px') + ')';
+            });
+            content.addEventListener('mouseleave', function() {
+                this.style.backgroundColor = '';
+                this.style.transform = '';
+            });
+        });
+
+        // Stat Cards Animation Enhancement
+        const statCards = document.querySelectorAll('.stat-card');
+        statCards.forEach((card, index) => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px) scale(1.08)';
+                this.style.boxShadow = '0 25px 50px rgba(218, 2, 14, 0.3)';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+                this.style.boxShadow = '';
+            });
+        });
+
+        // CTA Button Animation Enhancement
+        const ctaButton = document.querySelector('.cta-button');
+        ctaButton.addEventListener('mouseenter', function() {
+            this.style.boxShadow = '0 15px 35px rgba(218, 2, 14, 0.6)';
+        });
+        ctaButton.addEventListener('mouseleave', function() {
+            this.style.boxShadow = '0 10px 30px rgba(218, 2, 14, 0.4)';
+        });
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.5)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.9)';
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Floating Stadium Effect
+        const stadiumImage = document.querySelector('.stadium-image');
+        window.addEventListener('mousemove', function(e) {
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+            stadiumImage.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+        });
+
+        // Add more interactive elements
+        const navLinks = document.querySelectorAll('.nav-menu li a');
+        navLinks.forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.color = '#ff6b6b';
+                this.style.textShadow = '0 0 15px rgba(218, 2, 14, 0.7)';
+            });
+            link.addEventListener('mouseleave', function() {
+                this.style.color = '';
+                this.style.textShadow = '';
+            });
+        });
+
+        // Fact Items Animation
+        const factItems = document.querySelectorAll('.fact-item');
+        factItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateX(10px)';
+                this.style.backgroundColor = 'rgba(218, 2, 14, 0.2)';
+            });
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+                this.style.backgroundColor = '';
+            });
+        });
+
+        // Social Links Animation
+        const socialLinks = document.querySelectorAll('.social-link');
+        socialLinks.forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) rotate(15deg) scale(1.2)';
+                this.style.boxShadow = '0 5px 15px rgba(218, 2, 14, 0.4)';
+            });
+            link.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+                this.style.boxShadow = '';
+            });
+        });
+
+        // Footer Link Animation
+        const footerLinks = document.querySelectorAll('.footer-column a');
+        footerLinks.forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.color = '#ff4757';
+                this.style.textShadow = '0 0 10px rgba(218, 2, 14, 0.5)';
+            });
+            link.addEventListener('mouseleave', function() {
+                this.style.color = '';
+                this.style.textShadow = '';
+            });
+        });
+    </script>
+</body>
+</html>
+
